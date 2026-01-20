@@ -1,8 +1,4 @@
-#------------------------------------------------------------#
-# DisJointSetUnion - DSU
-#------------------------------------------------------------#
-
-class DisJointSet :
+class DSU :
     def _init_(self, n) :
         self.parent = [i for i in range(n + 1)]
         self.size = [1 for i in range(n + 1)]
@@ -39,23 +35,3 @@ class DisJointSet :
             self.parent[Upv] = Upu 
             self.size[Upu] += self.size[Upv]
 
-#Example 
-
-dsu = DisJointSet(7)
-dsu.UnionBySize(1, 2)
-dsu.UnionBySize(2, 3)
-dsu.UnionBySize(4, 5) 
-dsu.UnionBySize(6, 7) 
-dsu.UnionBySize(5, 6) 
-
-if (dsu.FindUParent(3) == dsu.FindUParent(7)) :
-    print('Before : Same')
-else :
-    print('Before : Not Same')
-
-dsu.UnionBySize(3, 7)
-
-if (dsu.FindUParent(3) == dsu.FindUParent(7)) :
-    print('After : Same')
-else :
-    print('After : Not Same')
