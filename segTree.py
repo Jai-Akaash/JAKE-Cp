@@ -28,10 +28,3 @@ class segTree:
 			return self.tree[node]
 		mid = (start + end) // 2
 		return self.query(2 * node,start,mid,L,R) + self.query(2 * node + 1,mid + 1,end,L,R)
-
-arr = [2,5,4,1]
-st = segTree(len(arr),arr)
-print(st.tree[1])
-st.update(1,0,len(arr) - 1,3,5)
-print(st.tree[1])
-print(st.query(1,0,len(arr) - 1,1,3))

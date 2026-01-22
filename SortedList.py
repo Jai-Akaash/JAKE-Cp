@@ -10,13 +10,13 @@ class FenwickTree:
                 self.bit[j] += self.bit[i]
 
     def update(self, idx, x):
-        """updates bit[idx] += x"""
+       
         while idx < self.size:
             self.bit[idx] += x
             idx |= idx + 1
 
     def __call__(self, end):
-        """Calculates sum(bit[:end])"""
+        
         x = 0
         while end:
             x += self.bit[end - 1]
@@ -24,7 +24,7 @@ class FenwickTree:
         return x
 
     def find_kth(self, k):
-        """Find largest idx such that sum(bit[:idx]) <= k"""
+        
         idx = -1
         for d in reversed(range(self.size.bit_length())):
             right_idx = idx + (1 << d)
